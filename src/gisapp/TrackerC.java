@@ -30,19 +30,19 @@ public class TrackerC extends Tracker {
             isAtDest = true;
     }
     
-    private void printCurrentPath(){
+    private String getCurrentPath(){
         TrackerA tempA = (TrackerA)trackA.getCopyOfPath();
-        tempA.printPath();
+        return tempA.getPath();
     }
 
     @Override
-    public void printPath() {
+    public String getPath() {
         if(isAtDest){
             TrackerB tempB = (TrackerB)trackB.getCopyOfPath();
-            tempB.printPath();
+            return tempB.getPath();
         }
         else
-            printCurrentPath();
+            return getCurrentPath();
     }
 
     @Override

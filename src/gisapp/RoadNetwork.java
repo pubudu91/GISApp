@@ -46,4 +46,27 @@ public class RoadNetwork {
     public WayPoint getPlace(String name){
         return vertices.get(name.toLowerCase());
     }
+    
+    public WayPoint[] getAdjacentPlaces(WayPoint point){
+        int index = keys.indexOf(point.toString().toLowerCase());
+        int limit = keys.size();
+        ArrayList<WayPoint> adj = new ArrayList<WayPoint>();
+        
+        if(index < 0)
+            return null;
+        else{
+            for(int i=0; i<limit; i++){
+                if(index == i)
+                    continue;
+                
+                if(adjacent[index][i])
+                    adj.add(vertices.get(keys.get(i)));
+            }
+        }
+        
+        if(adj.size() == 0)
+            return null;
+        else
+            return adj.toArray(new WayPoint[1]);
+    }
 }

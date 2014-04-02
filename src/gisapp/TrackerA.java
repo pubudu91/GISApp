@@ -28,17 +28,21 @@ public class TrackerA extends Tracker{
         //pt.setVisited(true);
     }
     
-    public void printPath(){
-        System.out.print("\nThe path from A-type Tracker: ");
+    public String getPath(){
+        //System.out.print("\nThe path from A-type Tracker: ");
+        StringBuilder txt = new StringBuilder();
+        
         while(!path.isEmpty()){
-            System.out.print(path.poll());
+            //System.out.print(path.poll());
+            txt.append(path.poll());
             
             if(path.isEmpty())
                break;
             
-            System.out.print(" -> ");
+            //System.out.print(" -> ");
+            txt.append(" -> ");
         }
-        System.out.println();
+        return txt.toString();
     }
     
     public void setStartingPoint(WayPoint start){

@@ -25,7 +25,7 @@ abstract class Tracker implements Observer, Cloneable {
         return obj;
     }
     
-    abstract public void printPath();
+    abstract public String getPath();
     
     abstract public void setStartingPoint(WayPoint start);
 }

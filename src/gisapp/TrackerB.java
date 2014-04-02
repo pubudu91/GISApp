@@ -32,23 +32,27 @@ public class TrackerB extends Tracker implements Cloneable {
         }
     }
     
-    public void printPath(){
+    public String getPath(){
         Stack<WayPoint> temp = new Stack<WayPoint>();
         
-        System.out.print("\nThe path from B-type Tracker: ");
+        //System.out.printf("\nThe path : ");
+        StringBuilder txt = new StringBuilder();
         
         while(!path.isEmpty())
             temp.push(path.pop());
         
         while(!temp.isEmpty()){
-            System.out.print(temp.pop());
-            
+            //System.out.print(temp.pop());
+            txt.append(temp.pop());
+                        
             if(temp.isEmpty())
                 break;
-            System.out.print(" -> ");
+            //System.out.print(" -> ");
+            txt.append(" -> ");
         }
         
-        System.out.println();
+        //System.out.println();
+        return txt.toString();
     }
     
     public void setStartingPoint(WayPoint start){

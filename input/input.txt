@@ -1,0 +1,11 @@
+5
+Uni
+Katubedda
+Piliyandala
+Colombo
+Moratumulla
+Uni Katubedda
+Katubedda Colombo
+Uni Piliyandala
+Uni Moratumulla
+Piliyandala Colombo
