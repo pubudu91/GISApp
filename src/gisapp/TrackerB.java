@@ -14,7 +14,7 @@ import java.util.Stack;
  *
  * @author Pubudu
  */
-public class TrackerB implements Observer {
+public class TrackerB extends Tracker implements Cloneable {
     Stack<WayPoint> path;
     
     public TrackerB(){
@@ -23,11 +23,9 @@ public class TrackerB implements Observer {
     
     public void update(Observable o, Object arg) {
         WayPoint pt = (WayPoint) arg;
-        System.out.println(arg+" "+pt.wasVisited());
-        if(!pt.wasVisited()){
+        //System.out.println(arg+" "+pt.wasVisited());
+        if(!path.contains(pt))
             path.push(pt);
-            //pt.setVisited(true);
-        }
         else{
             while(!path.peek().equals(pt))
                 path.pop();
@@ -54,9 +52,7 @@ public class TrackerB implements Observer {
     }
     
     public void setStartingPoint(WayPoint start){
-        if(path.size()==0){
+        if(path.size()==0)
             path.push(start);
-            start.setVisited(true);
-        }
     }
 }

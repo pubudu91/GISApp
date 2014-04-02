@@ -12,7 +12,7 @@ package gisapp;
  */
 public class WayPoint {
     private String name;
-    private boolean wasVisited;
+    private boolean isDestination;
     
     public WayPoint(String name){
         this.name = toCamelCase(name);
@@ -34,12 +34,12 @@ public class WayPoint {
         return new String(temp);
     }
     
-    public void setVisited(boolean visited){
-        this.wasVisited = visited;
+    public void setIsDestination(boolean isDestination){
+        this.isDestination = isDestination;
     }
     
-    public boolean wasVisited(){
-        return wasVisited;
+    public boolean isDestination(){
+        return isDestination;
     }
     
     public String toString(){

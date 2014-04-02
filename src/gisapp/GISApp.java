@@ -22,6 +22,7 @@ public class GISApp {
         Scanner in = new Scanner(System.in);
         TrackerB trackB = new TrackerB();
         TrackerA trackA = new TrackerA();
+        TrackerC trackC = new TrackerC();
         
         map.addPlace("Uni");
         map.addPlace("Katubedda");
@@ -38,21 +39,29 @@ public class GISApp {
         Traveller t = new Traveller("Pubudu",map.getPlace("Uni"));
         trackB.setStartingPoint(t.getCurrentLocation());
         trackA.setStartingPoint(t.getCurrentLocation());
+        trackC.setStartingPoint(t.getCurrentLocation());
         t.addObserver(trackB);
         t.addObserver(trackA);
+        t.addObserver(trackC);
         
        /**/ System.out.println("Enter Destination: ");
         t.setDestination(map.getPlace(in.next()));
+        
+        int count = 0;
 
         while(!t.getCurrentLocation().equals(t.getDestination())){
             System.out.println("Enter Location to go from current place: ");
             t.goTo(map.getPlace(in.next()));
+            if((count++) == 2)
+                trackC.printPath();
+                
         }
         
         //System.out.println(t.getDestination()==map.getPlace(in.next()));
             
         trackB.printPath();
         trackA.printPath();
+        trackC.printPath();
        // System.out.println(new WayPoint("Colombo").equals(new WayPoint("clombo")));
     }
     

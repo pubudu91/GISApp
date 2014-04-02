@@ -39,15 +39,12 @@ public class Traveller extends Observable {
     
     public void setDestination(WayPoint destination){
         this.destination = destination;
+        destination.setIsDestination(true);
     }
     
     public WayPoint getDestination(){
         return destination;
     }
-    
-    /*public void setCurrentLocation(String current){
-        currentLocation = new WayPoint(current);
-    }*/
     
     public WayPoint getCurrentLocation(){
         return currentLocation;

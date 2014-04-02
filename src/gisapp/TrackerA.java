@@ -15,8 +15,7 @@ import java.util.PriorityQueue;
  *
  * @author 120149H
  */
-public class TrackerA implements Observer{
-    private final static int INITIAL = 10;
+public class TrackerA extends Tracker{
     CustomQueue<WayPoint> path;
     
     public TrackerA(){   
@@ -45,7 +44,7 @@ public class TrackerA implements Observer{
     public void setStartingPoint(WayPoint start){
         if(path.size()==0){
             path.add(start);
-            start.setVisited(true);
+            //start.setVisited(true);
         }
     }
 }
